@@ -6,13 +6,17 @@ const commonConfig = merge([
     {
         entry: "./src/index.js",
     },
-    parts.page({ title: "Travel App" })
+    parts.page({ title: "Travel App" }),
+    parts.extractCSS(),
 ]);
 
 const productionConfig = merge([]);
 
 const developmentConfig = merge([
-    { entry: ["webpack-plugin-serve/client"] },
+    {
+        entry: [
+            "webpack-plugin-serve/client", "./src/index.js"]
+    },
     parts.devServer(),
 ]);
 
