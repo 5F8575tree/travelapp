@@ -1,6 +1,7 @@
 const { WebpackPluginServe: Serve } = require("webpack-plugin-serve")
 const { MiniHtmlWebpackPlugin } = require("mini-html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const path = require("path")
 
 exports.devServer = () => ({
     watch: true,
@@ -12,16 +13,6 @@ exports.devServer = () => ({
             waitForBuild: true,
         }),
     ],
-})
-
-exports.loadCSS = () => ({
-    module: {
-        rules: [
-            {
-                test: /\.css$/, use: ["style-loader", "css-loader"],
-            },
-        ],
-    },
 })
 
 exports.extractCSS = () => ({
@@ -49,4 +40,19 @@ exports.page = ({ title }) => ({
     plugins: [
         new MiniHtmlWebpackPlugin({ context: { title } }),
     ],
+})
+
+
+const APP_SOURCE = path.resolve(__dirname, "src");
+
+exports.loadJavaScript = () => ({
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                include: APP_SOURCE,
+                loader: "babel-loader",
+            },
+        ],
+    },
 })

@@ -1,6 +1,8 @@
 const { mode } = require("webpack-nano/argv")
 const { merge } = require("webpack-merge")
-const parts = require("./webpack.parts")
+const parts = require("./webpack.parts");
+const path = require("path");
+
 
 const commonConfig = merge([
     {
@@ -8,6 +10,7 @@ const commonConfig = merge([
     },
     parts.page({ title: "Travel App" }),
     parts.extractCSS(),
+    parts.loadJavaScript(),
 ]);
 
 const productionConfig = merge([]);
