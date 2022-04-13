@@ -6,10 +6,14 @@ const path = require("path");
 
 const commonConfig = merge([
     {
-        entry: "./src/index.js",
+        entry: "./src/index.js"
     },
     {
-        output: { path: path.resolve(__dirname, "dist"), filename: "bundle.[contenthash].js" },
+        output: {
+            path: path.resolve(__dirname, "dist"),
+            libraryTarget: "var",
+            library: "$"
+        },
     },
     parts.clean(),
     parts.page(),
@@ -18,7 +22,6 @@ const commonConfig = merge([
 ]);
 
 const productionConfig = merge([
-    parts.generateSourceMaps({ type: "source-map" }),
     parts.minifyJavaScript(),
     parts.minifyCSS({ options: { minimizerOptions: { preset: ["default", { discardComments: { removeAll: true } }] } } }),
 ]);

@@ -5,6 +5,7 @@ const TerserPlugin = require("terser-webpack-plugin")
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const path = require("path")
+const webpack = require("webpack")
 
 
 exports.minifyJavaScript = () => ({
@@ -66,6 +67,9 @@ exports.page = () => ({
             title: "Travel app",
             template: path.resolve(__dirname, "src", "client", "views", "index.html"),
             filename: "index.html",
+        }),
+        new webpack.ProvidePlugin({
+            process: "process/browser",
         }),
     ],
 })
