@@ -65,7 +65,7 @@ exports.page = () => ({
         new HtmlWebpackPlugin({
             title: "Travel app",
             template: path.resolve(__dirname, "src", "client", "views", "index.html"),
-            filename: "index.[contenthash].html",
+            filename: "index.html",
         }),
     ],
 })
