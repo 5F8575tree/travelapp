@@ -15,6 +15,10 @@ exports.devServer = () => ({
     ],
 })
 
+exports.generateSourceMaps = ({ type }) => ({
+    devtool: type,
+})
+
 exports.extractCSS = () => ({
     module: {
         rules: [
