@@ -8,13 +8,19 @@ const commonConfig = merge([
     {
         entry: "./src/index.js",
     },
-    parts.page({ title: "Travel App" }),
+    {
+        output: { path: path.resolve(__dirname, "dist"), filename: "bundle.[contenthash].js" },
+    },
+    parts.clean(),
+    parts.page(),
     parts.extractCSS(),
     parts.loadJavaScript(),
 ]);
 
 const productionConfig = merge([
     parts.generateSourceMaps({ type: "source-map" }),
+    parts.minifyJavaScript(),
+    parts.minifyCSS({ options: { minimizerOptions: { preset: ["default", { discardComments: { removeAll: true } }] } } }),
 ]);
 
 const developmentConfig = merge([

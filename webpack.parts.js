@@ -1,7 +1,27 @@
 const { WebpackPluginServe: Serve } = require("webpack-plugin-serve")
-const { MiniHtmlWebpackPlugin } = require("mini-html-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const TerserPlugin = require("terser-webpack-plugin")
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const path = require("path")
+
+
+exports.minifyJavaScript = () => ({
+    optimization: {
+        minimizer: [
+            new TerserPlugin(),
+        ],
+    },
+})
+
+exports.minifyCSS = ({ options }) => ({
+    optimization: {
+        minimizer: [
+            new CssMinimizerPlugin(options),
+        ],
+    },
+})
 
 exports.devServer = () => ({
     watch: true,
@@ -34,18 +54,25 @@ exports.extractCSS = () => ({
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "[name].css",
+            filename: "[name].[contenthash].css",
         }),
     ],
 })
 
 
-exports.page = ({ title }) => ({
+exports.page = () => ({
     plugins: [
-        new MiniHtmlWebpackPlugin({ context: { title } }),
+        new HtmlWebpackPlugin({
+            title: "Travel app",
+            template: path.resolve(__dirname, "src", "client", "views", "index.html"),
+            filename: "index.[contenthash].html",
+        }),
     ],
 })
 
+exports.clean = () => ({
+    plugins: [new CleanWebpackPlugin()],
+})
 
 const APP_SOURCE = path.resolve(__dirname, "src");
 
