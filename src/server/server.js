@@ -14,12 +14,12 @@ app.use(express.json());
 app.use(cors());
 
 
-//we need to store our geonames base url and api key from our .env file
-// const geonamesBaseUrl = 'http://api.geonames.org/searchJSON?q=';
-// const geonamesApiKey = '&username=mark.jeffrey.rawlins';
-const geonamesURL = 'http://api.geonames.org/searchJSON?q=';
+//we need to store our data from our .env file
+const geonamesURL = process.env.GEONAMES_BASE_URL;
 const geonamesApiKey = process.env.GEONAMES_API_KEY;
 
+const weatherURL = process.env.WEATHER_BASE_URL;
+const weatherApiKey = process.env.WEATHER_API_KEY;
 
 app.get('/*', (req, res) => {
     res.sendFile(path.resolve("dist", "index.html"));

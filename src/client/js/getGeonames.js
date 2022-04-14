@@ -15,7 +15,7 @@ const formHandler = async (evt) => {
             document.getElementById('long').innerHTML = `Longitude: ${data.longitude}`;
             document.getElementById('lat').innerHTML = `Latitude: ${data.latitude}`;
             document.getElementById('tripDate').innerHTML = `Date: ${tripDate}`;
-        })
+        });
     } else {
         alert('Please enter a city name');
     }
