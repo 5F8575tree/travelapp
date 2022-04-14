@@ -25,7 +25,7 @@ const formHandler = async (evt) => {
     const userInput = document.getElementById('input').value;
     if (validInput(input)) {
         post('http://localhost:3001/api', { userInput }).then(data => {
-            console.log(data);
+            console.log('longitude: ', data.longitude, 'latitude: ', data.latitude);
             document.getElementById('city').innerHTML = `City: ${userInput}`;
             document.getElementById('long').innerHTML = `Longitude: ${data.longitude}`;
             document.getElementById('lat').innerHTML = `Latitude: ${data.latitude}`;

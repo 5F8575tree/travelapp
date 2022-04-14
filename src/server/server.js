@@ -1,5 +1,5 @@
-// const dotenv = require('dotenv');
-// dotenv.config();
+const dotenv = require('dotenv');
+dotenv.config();
 
 const path = require('path');
 const express = require('express');
@@ -14,11 +14,11 @@ app.use(express.json());
 app.use(cors());
 
 //we need to store our geonames base url and api key from our .env file
-// const geonamesBaseUrl = process.env.GEONAMES_BASE_URL;
-// const geonamesApiKey = process.env.GEONAMES_API_KEY;
+// const geonamesBaseUrl = 'http://api.geonames.org/searchJSON?q=';
+// const geonamesApiKey = '&username=mark.jeffrey.rawlins';
 const geonamesURL = 'http://api.geonames.org/searchJSON?q=';
-const geoNamesUserName = '&username=mark.jeffrey.rawlins';
-http://api.geonames.org/searchJSON?q=Tokyo&username=mark.jeffrey.rawlins
+const geonamesApiKey = process.env.GEONAMES_API_KEY;
+
 
 app.get('/*', (req, res) => {
     res.sendFile(path.resolve("dist", "index.html"));
@@ -29,7 +29,7 @@ app.post('/api', (req, res) => {
     console.log("req.body: ", req.body);
     const dataAPI = req.body;
     //we need to build the url using the base url and the api key
-    const url = `${geonamesURL}${dataAPI.userInput}${geoNamesUserName}`;
+    const url = `${geonamesURL}${dataAPI.userInput}${geonamesApiKey}`;
     //we need to pull the data for confidence, irony, and agreement from the url
     fetch(url)
         .then(res => res.json())
