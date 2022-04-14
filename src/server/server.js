@@ -9,9 +9,10 @@ const fetch = require('node-fetch');
 
 
 app.use(express.static('dist'));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+
 
 //we need to store our geonames base url and api key from our .env file
 // const geonamesBaseUrl = 'http://api.geonames.org/searchJSON?q=';
@@ -26,8 +27,10 @@ app.get('/*', (req, res) => {
 
 //create a route that comes from the client side and sends a test result
 app.post('/api', (req, res) => {
-    console.log("req.body: ", req.body);
     const dataAPI = req.body;
+    const date = req.body.tripDate;
+    console.log("date: ", date);
+    console.log("user input: ", req.body);
     //we need to build the url using the base url and the api key
     const url = `${geonamesURL}${dataAPI.userInput}${geonamesApiKey}`;
     //we need to pull the data for confidence, irony, and agreement from the url
@@ -45,7 +48,6 @@ app.post('/api', (req, res) => {
             res.send(dataAPI);
         });
 });
-
 
 app.listen(3001, () => {
     console.log('Server is running on port 3001');
