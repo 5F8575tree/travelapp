@@ -91,3 +91,14 @@ exports.loadJavaScript = () => ({
         ],
     },
 })
+
+exports.loadImages = () => ({
+    module: {
+        rules: [
+            {
+                test: /\.(png|jpg|gif)$/,
+                type: "asset",
+            },
+        ],
+    },
+})

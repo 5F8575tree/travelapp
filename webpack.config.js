@@ -19,6 +19,7 @@ const commonConfig = merge([
     parts.page(),
     parts.extractCSS(),
     parts.loadJavaScript(),
+    parts.loadImages(),
 ]);
 
 const productionConfig = merge([
