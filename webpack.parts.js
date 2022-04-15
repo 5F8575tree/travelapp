@@ -97,7 +97,7 @@ exports.loadImages = () => ({
         rules: [
             {
                 test: /\.(png|jpg|gif)$/,
-                type: "asset",
+                type: "asset/resource",
             },
         ],
     },

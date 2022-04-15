@@ -1,16 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+@import url('../assets/images/background-img.jpg');
+
+/*we need to import the background image from the images folder in dist folder*/
+body {
+    background-image: url('../assets/images/background-img.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'DM Sans', sans-serif;
+    height: 100vh;
+    color: #fff;
+}
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-body {
-    background-color: rgb(213, 238, 185);
-    background-size: cover;
-    height: 100vh;
-    font-family: 'DM Sans', sans-serif;
 }
 
 .container {

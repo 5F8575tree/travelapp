@@ -1,4 +1,5 @@
 import getGeonames from './client/js/getGeonames.js';
+import "./client/assets/images/background-img.jpg";
 
 import "../src/client/styles/main.css";
 

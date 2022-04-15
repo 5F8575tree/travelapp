@@ -12,7 +12,8 @@ const commonConfig = merge([
         output: {
             path: path.resolve(__dirname, "dist"),
             libraryTarget: "var",
-            library: "$"
+            library: "$",
+            assetModuleFilename: "images/[name][extname]"
         },
     },
     parts.clean(),
