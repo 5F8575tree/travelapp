@@ -21,6 +21,10 @@ const geonamesApiKey = process.env.GEONAMES_API_KEY;
 const weatherURL = process.env.WEATHERBIT_BASE_URL;
 const weatherApiKey = process.env.WEATHERBIT_API_KEY;
 
+const pixabayURL = process.env.PIXABAY_BASE_URL;
+const pixabayApiKey = process.env.PIXABAY_API_KEY;
+
+
 app.get('/*', (req, res) => {
     res.sendFile(path.resolve("dist", "index.html"));
 });
@@ -54,14 +58,27 @@ app.post('/api', (req, res) => {
                     console.log("Geonames Data: ", dataAPI);
                     console.log("Weather Data: ", "weather is ", weather, "temp is ", temp);
                     //we need to send the data to the client side
-                    res.json({
-                        longitude,
-                        latitude,
-                        weather,
-                        temp,
-                    });
-                })
-                .catch(err => console.log(err));
+
+                    //we need to build the url for pixabay and return the image
+                    const urlPixabay = `${pixabayURL}&q=${dataAPI.userInput}&image_type=photo&pretty=true&key=${pixabayApiKey}`;
+                    fetch(urlPixabay)
+                        .then(res => res.json())
+                        .then(data => {
+                            //we need to grab the first image from the data
+                            const image = data.hits[0].webformatURL;
+
+                            console.log("Pixabay Data: ", image);
+                            //we need to send the data to the client side
+                            res.send({
+                                longitude,
+                                latitude,
+                                weather,
+                                temp,
+                                image
+                            });
+
+                        });
+                });
         });
 });
 

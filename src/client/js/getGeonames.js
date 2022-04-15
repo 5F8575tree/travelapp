@@ -26,7 +26,12 @@ const formHandler = async (evt) => {
             const diff = Math.abs(today - futureDate);
             const diffDays = Math.ceil(diff / (1000 * 3600 * 24));
             console.log('diffDays: ', diffDays);
-            document.getElementById('days').innerHTML = `Days until your trip: ${diffDays}`;
+            document.getElementById('days').innerHTML = `${diffDays} days until your trip!`;
+
+
+            //we need to insert the image from pixabay into the div entitled 'image'
+            const image = document.getElementById('image');
+            image.innerHTML = `<img src="${data.image}" alt="${userInput}">`;
         });
     } else {
         alert('Please enter a city name');
