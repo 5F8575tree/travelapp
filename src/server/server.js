@@ -56,7 +56,7 @@ app.post('/api', (req, res) => {
                     const temp = data.data[0].temp;
 
                     console.log("Geonames Data: ", dataAPI);
-                    console.log("Weather Data: ", "weather is ", weather, "temp is ", temp);
+                    console.log("Weather Data: ", "weather is", weather, ", and temp is", temp);
                     //we need to send the data to the client side
 
                     //we need to build the url for pixabay and return the image

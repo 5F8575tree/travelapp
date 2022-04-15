@@ -16,7 +16,7 @@ const formHandler = async (evt) => {
             document.getElementById('long').innerHTML = `Longitude: ${data.longitude}`;
             document.getElementById('lat').innerHTML = `Latitude: ${data.latitude}`;
             document.getElementById('weather').innerHTML = `Weather: ${data.weather}`;
-            document.getElementById('temperature').innerHTML = `Temperature: ${data.temp}`;
+            document.getElementById('temperature').innerHTML = `Temperature: ${data.temp}℃`;
 
             //take today's date and subtract the trip date
             const today = new Date();
@@ -26,12 +26,21 @@ const formHandler = async (evt) => {
             const diff = Math.abs(today - futureDate);
             const diffDays = Math.ceil(diff / (1000 * 3600 * 24));
             console.log('diffDays: ', diffDays);
-            document.getElementById('days').innerHTML = `${diffDays} days until your trip!`;
+            if (diffDays < 1) {
+                document.getElementById('days').innerHTML = `${diffDays} days until your trip!`;
+            } else if (diffDays === 1) {
+                document.getElementById('days').innerHTML = `${diffDays} day until your trip!`;
+            } else if (diffDays === 0) {
+                document.getElementById('days').innerHTML = `You are travelling to ${userInput} today!`;
+            } else {
+                document.getElementById('days').innerHTML = `Whoops! You have entered a date in the past...`;
+            }
 
 
             //we need to insert the image from pixabay into the div entitled 'image'
             const image = document.getElementById('image');
             image.innerHTML = `<img src="${data.image}" alt="${userInput}">`;
+
         });
     } else {
         alert('Please enter a city name');
