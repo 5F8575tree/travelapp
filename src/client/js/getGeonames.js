@@ -1,4 +1,5 @@
 //we need an event listener that sends the input to the server when the user clicks the button
+import { formatDate } from './formatDates';
 import { post } from './post';
 import validInput from './validInput';
 
@@ -14,9 +15,18 @@ const formHandler = async (evt) => {
             document.getElementById('city').innerHTML = `City: ${userInput}`;
             document.getElementById('long').innerHTML = `Longitude: ${data.longitude}`;
             document.getElementById('lat').innerHTML = `Latitude: ${data.latitude}`;
-            document.getElementById('tripDate').innerHTML = `Date: ${tripDate}`;
             document.getElementById('weather').innerHTML = `Weather: ${data.weather}`;
             document.getElementById('temperature').innerHTML = `Temperature: ${data.temp}`;
+
+            //take today's date and subtract the trip date
+            const today = new Date();
+            formatDate(today);
+            const futureDate = new Date(tripDate);
+            formatDate(futureDate);
+            const diff = Math.abs(today - futureDate);
+            const diffDays = Math.ceil(diff / (1000 * 3600 * 24));
+            console.log('diffDays: ', diffDays);
+            document.getElementById('days').innerHTML = `Days until your trip: ${diffDays}`;
         });
     } else {
         alert('Please enter a city name');

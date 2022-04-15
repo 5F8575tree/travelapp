@@ -29,7 +29,7 @@ app.get('/*', (req, res) => {
 app.post('/api', (req, res) => {
     const dataAPI = req.body;
     const date = req.body.tripDate;
-    console.log("date: ", date);
+    console.log("server side date: ", date);
     //we need to build the url using the base url and the api key
     const url = `${geonamesURL}${dataAPI.userInput}${geonamesApiKey}`;
     //we need to pull the data for confidence, irony, and agreement from the url
