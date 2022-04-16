@@ -13,7 +13,7 @@ const commonConfig = merge([
             path: path.resolve(__dirname, "dist"),
             libraryTarget: "var",
             library: "$",
-            assetModuleFilename: "images/[name][extname]"
+            assetModuleFilename: "images/[name][ext]"
         },
     },
     parts.clean(),

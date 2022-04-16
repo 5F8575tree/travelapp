@@ -25,21 +25,31 @@
 
                 <div class="weathertodaydetails">
                     <div class="icon">
-                        <img src="" alt="" class="icon">
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="" class="icon">
                     </div>
                     <div class="weatherdetails">
-                        <p id="weather">Weather: Very cold</p>
+                        <p id="weather">Weather: </p>
+                        <p id="weather-description">Cloudy</p>
                     </div>
                     <div class="weatherdetails">
-                        <p id="temperature">Temperature: 37 degrees</p>
+                        <p id="temperature">Temperature: </p>
+                        <p id="temperature-description">20°C</p>
                     </div>
                     <div class="weatherdetails">
-                        <p id="humidity">Humidity: 65.7%</p>
+                        <p id="humidity">Humidity: </p>
+                        <p id="humidity-description">70%</p>
                     </div>
                 </div>
+
+                <div id="inputBox">
+                    <input type="text" id="input" placeholder="Enter your destination...">
+                    <input type="date" id="date">
+                    <button id="submit">Submit</button>
+                </div>
+
             </div>
 
-            <div class="location">
+            <div class="location-container">
                 <div class="city" id="city">
                     <p id="city">Tokyo</p>
                 </div>
@@ -54,127 +64,17 @@
             </div>
         </div>
     </div>
+
     <div class="forecast">
-        <div id="inputBox">
-            <input type="text" id="input">
-            <input type="date" id="date">
-            <button id="submit">Submit</button>
-            <p id="tripDate">Travel Date:</p>
-            <p id="days">Countdown:</p>
-        </div>
-        <div class="results">
-            <div class="forecastitem">
-                <div class="day">
-                    <p id="day2">Monday</p>
-                </div>
-                <div class="icon">
-                    <img src="" alt="" class="icon">
-                </div>
-                <div class="weatherdetails">
-                    <p id="weatherforecast"></p>
-                    <p id="day2">Very hot</p>
-                </div>
-                <div class="weatherdetails">
-                    <p id="temperatureforecast"></p>
-                    <p id="day2">39.3 degrees</p>
-                </div>
-                <div class="weatherdetails">
-                    <p id="humidityforecast"></p>
-                    <p id="day2">54%</p>
-                </div>
+        <div class="dayInfo">
+            <div class="tripDate">
+                <p id="tripDate">Travel Date:</p>
             </div>
-
-            <div class="forecastitem">
-                <div class="day">
-                    <p id="day3">Tuesday</p>
-                </div>
-                <div class="icon">
-                    <img src="" alt="" class="icon">
-                </div>
-                <div class="weatherdetails">
-                    <p id="weatherforecast"></p>
-                    <p id="day3">Hot and cold</p>
-                </div>
-                <div class="weatherdetails">
-                    <p id="temperatureforecast"></p>
-                    <p id="day3">45 degrees</p>
-                </div>
-                <div class="weatherdetails">
-                    <p id="humidityforecast"></p>
-                    <p id="day3">10%</p>
-                </div>
-            </div>
-
-
-            <div class="forecastitem">
-                <div class="day">
-                    <p id="day4">Wednesday</p>
-                </div>
-                <div class="icon">
-                    <img src="" alt="" class="icon">
-                </div>
-                <div class="weatherdetails">
-                    <p id="weatherforecast"></p>
-                    <p id="day4">Chilly</p>
-                </div>
-                <div class="weatherdetails">
-                    <p id="temperatureforecast"></p>
-                    <p id="day4">25 degrees</p>
-                </div>
-                <div class="weatherdetails">
-                    <p id="humidityforecast"></p>
-                    <p id="day4">45%</p>
-                </div>
-            </div>
-
-
-            <div class="forecastitem">
-                <div class="day">
-                    <p id="day5">Thursday</p>
-                </div>
-                <div class="icon">
-                    <img src="" alt="" class="icon">
-                </div>
-                <div class="weatherdetails">
-                    <p id="weatherforecast"></p>
-                    <p id="day5">Brisk with showers</p>
-                </div>
-                <div class="weatherdetails">
-                    <p id="temperatureforecast"></p>
-                    <p id="day5">12 degrees</p>
-                </div>
-                <div class="weatherdetails">
-                    <p id="humidityforecast"></p>
-                    <p id="day5">67%</p>
-                </div>
-            </div>
-
-            <div class="forecastitem">
-                <div class="day">
-                    <p id="day6">Friday</p>
-                </div>
-                <div class="icon">
-                    <img src="" alt="" class="icon">
-                </div>
-                <div class="weatherdetails">
-                    <p id="weatherforecast"></p>
-                    <p id="day6">Snow</p>
-                </div>
-                <div class="weatherdetails">
-                    <p id="temperatureforecast"></p>
-                    <p id="day6">-0.7 degrees</p>
-                </div>
-                <div class="weatherdetails">
-                    <p id="humidityforecast"></p>
-                    <p id="day6">79%</p>
-                </div>
-
+            <div class="days">
+                <p id="days">Countdown:</p>
             </div>
         </div>
     </div>
-
-
-    <div id="image"></div>
 
 </body>
 
