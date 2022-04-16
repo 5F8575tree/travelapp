@@ -12,9 +12,9 @@ const formHandler = async (evt) => {
     if (validInput(input)) {
         post('http://localhost:3001/api', { userInput, tripDate }).then(data => {
             console.log('longitude: ', data.longitude, 'latitude: ', data.latitude);
-            document.getElementById('cityInput').innerHTML = `City: ${userInput}`;
-            document.getElementById('longitude').innerHTML = `Longitude: ${data.longitude}`;
-            document.getElementById('latitude').innerHTML = `Latitude: ${data.latitude}`;
+            document.getElementById('cityInput').innerHTML = ` ${userInput}`;
+            document.getElementById('longitude').innerHTML = ` ${data.longitude}`;
+            document.getElementById('latitude').innerHTML = ` ${data.latitude}`;
             document.getElementById('weather-description').innerHTML = ` ${data.weather}`;
             document.getElementById('temperature-description').innerHTML = ` ${data.temp}℃`;
 
@@ -26,13 +26,12 @@ const formHandler = async (evt) => {
             const diff = Math.abs(today - futureDate);
             const diffDays = Math.ceil(diff / (1000 * 3600 * 24));
             console.log('diffDays: ', diffDays);
-            document.getElementById('tripDate').innerHTML = `Trip Date: ${tripDate}`;
-            document.getElementById('days').innerHTML = `Day(s) until you travel: ${diffDays}`;
+            document.getElementById('days').innerHTML = `Your trip to ${userInput} is in ${diffDays} days!`;
 
 
             //we need to insert the image from pixabay into the div entitled 'image'
-            const image = document.getElementById('icon');
-            image.innerHTML = `<img src="${data.image}" alt="${userInput}">`;
+            const image = document.getElementById('location');
+            image.innerHTML = `<img class="icon" src="${data.image}" alt="${userInput}">`;
 
         });
     } else {

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <div class="container">
         <div class="weatherToday">
             <div class="today-container">
@@ -24,16 +25,25 @@
                 </div>
 
                 <div class="weathertodaydetails">
-                    <div class="logo" id="logo">
-
+                    <div class="weatherdetails">
+                        <p id="city">City:</p>
+                        <p id="cityInput">...</p>
+                    </div>
+                    <div class="weatherdetails">
+                        <p id="long">Lon:</p>
+                        <p id="longitude">...</p>
+                    </div>
+                    <div class="weatherdetails">
+                        <p id="lat">Lat:</p>
+                        <p id="latitude">...</p>
                     </div>
                     <div class="weatherdetails">
                         <p id="weather">Weather:</p>
-                        <p id="weather-description"></p>
+                        <p id="weather-description">...</p>
                     </div>
                     <div class="weatherdetails">
                         <p id="temperature">Temperature: </p>
-                        <p id="temperature-description"></p>
+                        <p id="temperature-description">...</p>
                     </div>
                     <div class="weatherdetails">
                         <p id="humidity">Humidity: </p>
@@ -49,32 +59,18 @@
 
             </div>
 
-            <div class="location-container">
-                <div class="city" id="city">
-                    <p id="cityInput">Tokyo</p>
-                </div>
-                <div class="location">
-                    <div class="lon" id="lon">
-                        <p id="longitude">139.776</p>
-                    </div>
-                    <div class="lat" id="lat">
-                        <p id="latitude">45.766</p>
-                    </div>
-                </div>
-                <div class="icon" id="icon">
+            <div class="location-container" id="location">
 
-                </div>
             </div>
         </div>
+
+    </div>
     </div>
 
     <div class="forecast">
         <div class="dayInfo">
-            <div class="tripDate">
-                <p id="tripDate">Trip Date:</p>
-            </div>
             <div class="days">
-                <p id="days">Day(s) until you travel:</p>
+                <p id="days"></p>
             </div>
         </div>
     </div>
