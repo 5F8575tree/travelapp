@@ -24,16 +24,16 @@
                 </div>
 
                 <div class="weathertodaydetails">
-                    <div class="icon">
-                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="" class="icon">
+                    <div class="logo" id="logo">
+
                     </div>
                     <div class="weatherdetails">
-                        <p id="weather">Weather: </p>
-                        <p id="weather-description">Cloudy</p>
+                        <p id="weather">Weather:</p>
+                        <p id="weather-description"></p>
                     </div>
                     <div class="weatherdetails">
                         <p id="temperature">Temperature: </p>
-                        <p id="temperature-description">20°C</p>
+                        <p id="temperature-description"></p>
                     </div>
                     <div class="weatherdetails">
                         <p id="humidity">Humidity: </p>
@@ -51,15 +51,18 @@
 
             <div class="location-container">
                 <div class="city" id="city">
-                    <p id="city">Tokyo</p>
+                    <p id="cityInput">Tokyo</p>
                 </div>
                 <div class="location">
                     <div class="lon" id="lon">
-                        <p id="long">139.776</p>
+                        <p id="longitude">139.776</p>
                     </div>
                     <div class="lat" id="lat">
-                        <p id="lat">45.766</p>
+                        <p id="latitude">45.766</p>
                     </div>
+                </div>
+                <div class="icon" id="icon">
+
                 </div>
             </div>
         </div>
@@ -68,10 +71,10 @@
     <div class="forecast">
         <div class="dayInfo">
             <div class="tripDate">
-                <p id="tripDate">Travel Date:</p>
+                <p id="tripDate">Trip Date:</p>
             </div>
             <div class="days">
-                <p id="days">Countdown:</p>
+                <p id="days">Day(s) until you travel:</p>
             </div>
         </div>
     </div>
