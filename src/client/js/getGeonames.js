@@ -32,7 +32,12 @@ const formHandler = async (evt) => {
             const diff = Math.abs(today - futureDate);
             const diffDays = Math.ceil(diff / (1000 * 3600 * 24));
             console.log('diffDays: ', diffDays);
-            document.getElementById('days').innerHTML = `Your trip to ${userInput} is in ${diffDays} days!`;
+            //if the trip is more than one day away use 'days' in the sentence, if the trip is before today use 'incorrect'
+            if (diffDays > 1) {
+                document.getElementById('days').innerHTML = `Your trip to ${userInput} is in ${diffDays} days`;
+            } else {
+                document.getElementById('days').innerHTML = `Your trip to ${userInput} is tomorrow!!`;
+            }
 
 
             //we need to insert the image from pixabay into the div entitled 'image'

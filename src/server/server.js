@@ -72,8 +72,8 @@ app.post('/api', (req, res) => {
                     fetch(urlPixabay)
                         .then(res => res.json())
                         .then(data => {
-                            //we need to grab the first image from the data
-                            const image = data.hits[0].webformatURL;
+                            //we need to grab a random image from the array of images
+                            const image = data.hits[Math.floor(Math.random() * data.hits.length)].webformatURL;
 
                             console.log("Pixabay Data: ", image);
                             //we need to send the data to the client side
@@ -84,6 +84,7 @@ app.post('/api', (req, res) => {
                                 temp,
                                 humidity,
                                 weatherDate,
+                                weatherIcon,
                                 image
                             });
 
