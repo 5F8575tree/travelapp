@@ -17,6 +17,7 @@ const formHandler = async (evt) => {
             document.getElementById('latitude').innerHTML = ` ${data.latitude}`;
             document.getElementById('weather-description').innerHTML = ` ${data.weather}`;
             document.getElementById('temperature-description').innerHTML = ` ${data.temp}℃`;
+            document.getElementById('humidity-description').innerHTML = ` ${data.humidity}%`;
 
             //take today's date and subtract the trip date
             const today = new Date();

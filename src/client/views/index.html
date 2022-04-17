@@ -20,40 +20,41 @@
                         <%= htmlWebpackPlugin.options.title %>
                     </h1>
                 </div>
-                <div class="datetoday" id="datetoday">
-                    Friday, 15 April
-                </div>
 
                 <div class="weathertodaydetails">
+                    <div class="datetoday" id="datetoday">
+
+                    </div>
                     <div class="weatherdetails">
                         <p id="city">City:</p>
-                        <p id="cityInput">...</p>
+                        <p class="result" id="cityInput">...</p>
                     </div>
                     <div class="weatherdetails">
                         <p id="long">Lon:</p>
-                        <p id="longitude">...</p>
+                        <p class="result" id="longitude">...</p>
                     </div>
                     <div class="weatherdetails">
                         <p id="lat">Lat:</p>
-                        <p id="latitude">...</p>
+                        <p class="result" id="latitude">...</p>
                     </div>
                     <div class="weatherdetails">
                         <p id="weather">Weather:</p>
-                        <p id="weather-description">...</p>
+                        <p class="result" id="weather-description">...</p>
                     </div>
                     <div class="weatherdetails">
                         <p id="temperature">Temperature: </p>
-                        <p id="temperature-description">...</p>
+                        <p class="result" id="temperature-description">...</p>
                     </div>
                     <div class="weatherdetails">
                         <p id="humidity">Humidity: </p>
-                        <p id="humidity-description">70%</p>
+                        <p class="result" id="humidity-description">...</p>
                     </div>
                 </div>
 
                 <div id="inputBox">
-                    <label id="label">Enter your destination...</label>
+                    <label id="label">Enter your destination</label>
                     <input type="text" id="input">
+                    <label id="label">Enter your travel date</label>
                     <input type="date" id="date">
                     <button id="submit">Submit</button>
                 </div>

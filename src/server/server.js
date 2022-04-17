@@ -54,9 +54,10 @@ app.post('/api', (req, res) => {
                     //we need to grab the weather data from the data
                     const weather = data.data[0].weather.description;
                     const temp = data.data[0].temp;
+                    const humidity = data.data[0].rh;
 
                     console.log("Geonames Data: ", dataAPI);
-                    console.log("Weather Data: ", "weather is", weather, ", and temp is", temp);
+                    console.log("Weather Data: ", "weather is", weather, ", and temp is", temp, " and humidity is", humidity);
                     //we need to send the data to the client side
 
                     //we need to build the url for pixabay and return the image
@@ -74,6 +75,7 @@ app.post('/api', (req, res) => {
                                 latitude,
                                 weather,
                                 temp,
+                                humidity,
                                 image
                             });
 
