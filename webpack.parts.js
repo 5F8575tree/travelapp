@@ -49,6 +49,7 @@ exports.extractCSS = () => ({
                 use: [
                     { loader: MiniCssExtractPlugin.loader },
                     "css-loader",
+                    "fast-sass-loader",
                 ],
                 sideEffects: true,
             },
