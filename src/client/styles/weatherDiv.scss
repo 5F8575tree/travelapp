@@ -1,0 +1,28 @@
+@import 'main.scss';
+
+.weathertodaydetails {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 100%;
+    background: $light-gradient;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid $border-color;
+
+    .datetoday {
+        font-size: 30px;
+        font-weight: 40;
+        padding-bottom: 10px;
+    }
+
+    .weatherdetails {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .result {
+        color: $primary-color;
+    }
+}

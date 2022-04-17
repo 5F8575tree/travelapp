@@ -1,0 +1,44 @@
+$primary-color: #fdff75;
+$secondary-color: #7775ff;
+$tertiary-color: #a4a1ff;
+$text-color: #eee;
+$border-color: #eee;
+$light-gradient: linear-gradient(-135deg, rgba(63, 59, 59, 0.705), rgba(45, 45, 45, 0.3));
+
+$font-family: 'DM sans',
+sans-serif;
+$title-font-family: 'Liu Jian Mao Cao',
+cursive;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../assets/images/Magome-Juku-Nakasendo-Trail.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'DM Sans', sans-serif;
+    height: 100vh;
+
+    .container {
+        padding: 20px 70px;
+        color: $text-color;
+    }
+
+    .forecast {
+        background: $light-gradient;
+        padding: 25px;
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        color: $text-color;
+        width: 100%;
+        align-items: left;
+        justify-content: left;
+        height: 20%;
+    }
+}
