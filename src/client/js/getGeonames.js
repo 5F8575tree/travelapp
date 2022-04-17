@@ -15,9 +15,14 @@ const formHandler = async (evt) => {
             document.getElementById('cityInput').innerHTML = ` ${userInput}`;
             document.getElementById('longitude').innerHTML = ` ${data.longitude}`;
             document.getElementById('latitude').innerHTML = ` ${data.latitude}`;
-            document.getElementById('weather-description').innerHTML = ` ${data.weather}`;
+            document.getElementById('weather-description').innerHTML = ` ${data.weatherDescription}`;
             document.getElementById('temperature-description').innerHTML = ` ${data.temp}℃`;
             document.getElementById('humidity-description').innerHTML = ` ${data.humidity}%`;
+
+
+            //show the date of travel in a readable format
+            document.getElementById('travelDate').innerHTML = new Date(data.weatherDate).toLocaleDateString('en-us', { weekday: 'long', month: 'long', day: 'numeric' });
+
 
             //take today's date and subtract the trip date
             const today = new Date();

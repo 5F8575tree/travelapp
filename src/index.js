@@ -7,7 +7,6 @@ console.log('hello from index.js');
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('datetoday').innerHTML = new Date().toLocaleDateString('en-us', { weekday: 'long', month: 'long', day: 'numeric' });
     const submit = document.getElementById('submit');
     submit.addEventListener('click', getGeonames);
 });
