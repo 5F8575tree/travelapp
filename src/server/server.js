@@ -64,9 +64,10 @@ app.post('/api', (req, res) => {
                     const humidity = weatherData[0].rh;
                     const weatherDescription = weatherData[0].weather.description;
                     const weatherDate = weatherData[0].valid_date;
-                    const icon = weatherData[0].weather.icon;
+                    //we need the country code
+                    const countryCode = data.country_code;
 
-                    console.log(icon);
+                    console.log(countryCode);
 
                     //we need to build the url for pixabay and return the image
                     const urlPixabay = `${pixabayURL}&q=${dataAPI.userInput}&image_type=photo&pretty=true&key=${pixabayApiKey}`;
@@ -86,14 +87,55 @@ app.post('/api', (req, res) => {
                                 temp,
                                 humidity,
                                 weatherDate,
-                                icon,
                                 image
                             });
-
                         });
                 });
         });
 });
+
+//we need a post request that takes the user input and sends it to the server
+app.post('/info', (req, res) => {
+    const cityName = req.body.userInput;
+
+    const countryName = `${weatherURL}${cityName}${weatherApiKey}`;
+
+    console.log(countryName);
+
+    fetch(countryName)
+        .then(res => res.json())
+        .then(data => {
+            //we need the country code from the data
+            const countryCode = data[1].country_code;
+
+            console.log(countryCode);
+            //we need to get the country data from the country code
+            const getCountryInfo = `https://restcountries.com/v2/alpha/${countryCode}`;
+            //we need to return the data from the restcountries api
+            fetch(getCountryInfo)
+                .then(res => res.json())
+                .then(data => {
+                    //we want the country name, population, flag, currency, and language
+                    const name = data.name;
+                    const population = data.population;
+                    const flag = data.flag;
+                    const currency = data.currencies[0].name;
+                    const language = data.languages[0].name;
+
+                    console.log(`${name} ${population} ${flag} ${currency} ${language}`);
+
+                    //we need to send the data to the client side
+                    res.send({
+                        name,
+                        population,
+                        flag,
+                        currency,
+                        language
+                    });
+                });
+        });
+});
+
 
 app.listen(3001, () => {
     console.log('Server is running on port 3001');

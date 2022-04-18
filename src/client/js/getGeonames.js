@@ -42,7 +42,7 @@ const formHandler = async (evt) => {
 
             //we need to insert the image from pixabay into the div entitled 'image'
             const image = document.getElementById('location');
-            image.innerHTML = `<img class="icon" src="${data.image}" alt="${userInput}">`;
+            image.innerHTML = `<img class="photo" src="${data.image}" alt="${userInput}">`;
 
         });
     } else {
