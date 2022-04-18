@@ -1,14 +1,4 @@
-$primary-color: #fdff75;
-$secondary-color: #7775ff;
-$tertiary-color: #a4a1ff;
-$text-color: #eee;
-$border-color: #eee;
-$light-gradient: linear-gradient(-135deg, rgba(63, 59, 59, 0.705), rgba(45, 45, 45, 0.3));
-
-$font-family: 'DM sans',
-sans-serif;
-$title-font-family: 'Liu Jian Mao Cao',
-cursive;
+@use './abstracts.scss'as a;
 
 * {
     box-sizing: border-box;
@@ -21,21 +11,21 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    font-family: 'DM Sans', sans-serif;
+    font-family: a.$primary-font, sans-serif;
     height: 100vh;
 
     .container {
         padding: 20px 70px;
-        color: $text-color;
+        color: a.$text-color;
     }
 
     .forecast {
-        background: $light-gradient;
+        background: a.$light-gradient;
         padding: 25px;
         position: fixed;
         bottom: 0;
         display: flex;
-        color: $text-color;
+        color: a.$text-color;
         width: 100%;
         align-items: left;
         justify-content: left;

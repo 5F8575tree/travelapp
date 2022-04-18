@@ -1,3 +1,7 @@
-@import 'main.scss';
-@import 'weatherDiv.scss';
-@import 'topDiv.scss';
+@use './abstracts.scss';
+@use './main.scss';
+@use './topDiv.scss';
+@use './bottomDiv.scss';
+@use './photoDiv.scss';
+@use './weatherDiv.scss';
+@use './inputDiv.scss';

@@ -1,0 +1,19 @@
+@use './abstracts.scss'as a;
+
+.forecast {
+    background: a.$light-gradient;
+    padding: 25px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    color: a.$text-color;
+    width: 100%;
+    align-items: left;
+    justify-content: left;
+    height: 20%;
+
+    .days {
+        font-size: 60px;
+        font-weight: 100;
+    }
+}

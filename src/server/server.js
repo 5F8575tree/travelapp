@@ -84,7 +84,6 @@ app.post('/api', (req, res) => {
                                 temp,
                                 humidity,
                                 weatherDate,
-                                weatherIcon,
                                 image
                             });
 

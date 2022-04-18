@@ -1,4 +1,4 @@
-@import 'main.scss';
+@use './abstracts.scss'as a;
 
 .weatherToday {
     display: flex;
@@ -8,9 +8,9 @@
 
 .today-container {
     .title {
-        font-family: $title-font-family;
+        font-family: a.$title-font;
         font-size: 40px;
         font-weight: 100;
-        color: $primary-color;
+        color: a.$primary-color;
     }
 }
