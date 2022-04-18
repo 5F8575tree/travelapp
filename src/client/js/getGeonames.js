@@ -1,4 +1,3 @@
-//we need an event listener that sends the input to the server when the user clicks the button
 import { formatDate } from './formatDates';
 import { post } from './post';
 import validInput from './validInput';
@@ -11,7 +10,7 @@ const formHandler = async (evt) => {
 
     if (validInput(input)) {
         post('http://localhost:3001/api', { userInput, tripDate }).then(data => {
-            console.log('longitude: ', data.longitude, 'latitude: ', data.latitude);
+
             document.getElementById('cityInput').innerHTML = ` ${userInput}`;
             document.getElementById('longitude').innerHTML = ` ${data.longitude}`;
             document.getElementById('latitude').innerHTML = ` ${data.latitude}`;
@@ -31,7 +30,8 @@ const formHandler = async (evt) => {
             formatDate(futureDate);
             const diff = Math.abs(today - futureDate);
             const diffDays = Math.ceil(diff / (1000 * 3600 * 24));
-            console.log('diffDays: ', diffDays);
+
+
             //if the trip is more than one day away use 'days' in the sentence, if the trip is before today use 'incorrect'
             if (diffDays > 1) {
                 document.getElementById('days').innerHTML = `Your trip to ${userInput} is in ${diffDays} days`;
