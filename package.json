@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "wp --mode production",
-    "dev": "wp --mode development --watch",
+    "dev": "wp --mode development",
     "server": "nodemon ./src/server/server.js",
     "start": "node ./src/server/server.js",
     "rebuild": "npm run build && npm run start"

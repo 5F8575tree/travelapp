@@ -1,0 +1,37 @@
+@use './abstracts.scss'as a;
+
+.country-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 150px;
+    align-items: center;
+
+    .flag-container {
+        width: 120px;
+        height: 120px;
+        padding-bottom: 5px;
+        border-radius: 80px;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .country-name {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: a.$text-color;
+        padding-left: 70px;
+        padding-right: 20px;
+        align-self: center;
+        width: 600px;
+    }
+
+    .country-info {
+        font-size: 2em;
+        color: a.$text-color;
+        padding-left: 20px;
+        padding-right: 20px;
+        align-self: center;
+        width: 600px;
+    }
+}

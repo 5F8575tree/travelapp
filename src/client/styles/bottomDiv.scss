@@ -1,24 +1,14 @@
 @use './abstracts.scss'as a;
 
-.forecast {
+.bottom-div {
     background: a.$light-gradient;
-    padding: 80px;
+    padding: 20px;
     position: fixed;
     bottom: 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     color: a.$text-color;
     width: 100%;
-    align-items: left;
-    justify-content: left;
+    justify-content: space-between;
     height: 20%;
-
-    .dayInfo {
-        margin-left: 20px;
-        padding-left: 20px !important;
-    }
-
-    .days {
-        font-size: 60px;
-        font-weight: 100;
-    }
 }

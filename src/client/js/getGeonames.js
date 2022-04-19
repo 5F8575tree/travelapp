@@ -18,9 +18,11 @@ const formHandler = async (evt) => {
             document.getElementById('temperature-description').innerHTML = ` ${data.temp}℃`;
             document.getElementById('humidity-description').innerHTML = ` ${data.humidity}%`;
 
-            document.getElementById('countryName').innerHTML = `${userInput}, ${data.country}`;
-            document.getElementById('population').innerHTML = ` ${data.population}`;
-            document.getElementById('region').innerHTML = ` ${data.region}`;
+            const population = data.population.toLocaleString("en-US");
+
+            document.getElementById('country-name').innerHTML = `${userInput}, ${data.country}`;
+            document.getElementById('population').innerHTML = `Population: ${population}`;
+            document.getElementById('region').innerHTML = `Region: ${data.region}`;
 
 
             //show the date of travel in a readable format
@@ -49,7 +51,7 @@ const formHandler = async (evt) => {
             image.innerHTML = `<img class="photo" src="${data.image}" alt="${userInput}">`;
 
             const flag = document.getElementById('flag');
-            flag.innerHTML = `<img class="flag" src="${data.flag}" alt="${data.country}">`;
+            flag.innerHTML = `<img class="flag-container" src="${data.flag}" alt="${data.country}">`;
 
         });
     } else {

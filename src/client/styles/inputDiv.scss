@@ -76,4 +76,11 @@
             color: a.$text-color;
         }
     }
+
+    #days {
+        align-self: center;
+        color: a.$primary-color;
+        font-size: 1.2em;
+        font-weight: 400;
+    }
 }

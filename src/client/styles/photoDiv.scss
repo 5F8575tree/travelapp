@@ -1,15 +1,18 @@
 @use './abstracts.scss'as a;
 
 .location-container {
+    display: flex;
+    flex-direction: column;
     text-align: end;
     width: 50%;
+    max-height: 420px;
     /* needs to be switched to 100% for small screen */
-    height: 420px;
+    height: 50vh;
     background: a.$deep-gradient;
     padding: 10px 10px;
     border-radius: 10px;
     margin: 10px 10px;
-    border: 1px solid a.$border-color;
+    border: 1px solid a.$secondary-color;
 
     .photo {
         width: 100%;
@@ -18,35 +21,5 @@
         border-radius: 10px;
         object-fit: cover;
         object-position: center;
-    }
-
-    .countryInfo {
-        width: 100%;
-        height: 50%;
-        padding-top: 5px;
-        border-radius: 10px;
-        background: a.$light-gradient;
-        border: 1px solid a.$border-color;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-
-        .country-name {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: a.$text-color;
-        }
-
-        .country-info {
-            font-size: 1em;
-            color: a.$text-color;
-        }
-
-        .packing-list {
-            font-size: 1em;
-            color: a.$text-color;
-        }
     }
 }
