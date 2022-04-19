@@ -18,6 +18,10 @@ const formHandler = async (evt) => {
             document.getElementById('temperature-description').innerHTML = ` ${data.temp}℃`;
             document.getElementById('humidity-description').innerHTML = ` ${data.humidity}%`;
 
+            document.getElementById('countryName').innerHTML = `${userInput}, ${data.country}`;
+            document.getElementById('population').innerHTML = ` ${data.population}`;
+            document.getElementById('region').innerHTML = ` ${data.region}`;
+
 
             //show the date of travel in a readable format
             document.getElementById('travelDate').innerHTML = new Date(data.weatherDate).toLocaleDateString('en-us', { weekday: 'long', month: 'long', day: 'numeric' });
@@ -43,6 +47,9 @@ const formHandler = async (evt) => {
             //we need to insert the image from pixabay into the div entitled 'image'
             const image = document.getElementById('location');
             image.innerHTML = `<img class="photo" src="${data.image}" alt="${userInput}">`;
+
+            const flag = document.getElementById('flag');
+            flag.innerHTML = `<img class="flag" src="${data.flag}" alt="${data.country}">`;
 
         });
     } else {

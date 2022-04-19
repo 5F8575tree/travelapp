@@ -67,7 +67,7 @@ app.post('/api', (req, res) => {
                     //we need the country code
                     const countryCode = data.country_code;
 
-                    console.log(countryCode);
+                    console.log("weatherbit code:", countryCode);
 
                     //we need to build the url for pixabay and return the image
                     const urlPixabay = `${pixabayURL}&q=${dataAPI.userInput}&image_type=photo&pretty=true&key=${pixabayApiKey}`;
@@ -78,63 +78,44 @@ app.post('/api', (req, res) => {
                             //we need to grab a random image from the array of images
                             const image = data.hits[Math.floor(Math.random() * data.hits.length)].webformatURL;
 
+                            //we need to build the url for the country data
+                            const urlCountry = `https://restcountries.com/v3.1/alpha/${countryCode}`;
+
+                            console.log("url country is:", urlCountry);
 
                             //we need to send the data to the client side
-                            res.send({
-                                longitude,
-                                latitude,
-                                weatherDescription,
-                                temp,
-                                humidity,
-                                weatherDate,
-                                image
-                            });
+                            fetch(urlCountry)
+                                .then(res => res.json())
+                                .then(data => {
+
+                                    const country = data[0].name.common;
+                                    const population = data[0].population;
+                                    const region = data[0].region;
+                                    const flag = data[0].flags.svg;
+
+                                    console.log('country is', country, 'population is', population, 'region is', region, 'flag is', flag);
+
+                                    res.send({
+                                        dataAPI,
+                                        longitude,
+                                        latitude,
+                                        temp,
+                                        humidity,
+                                        weatherDescription,
+                                        weatherDate,
+                                        image,
+                                        country,
+                                        population,
+                                        flag,
+                                        region
+                                    });
+
+                                });
                         });
                 });
         });
 });
 
-//we need a post request that takes the user input and sends it to the server
-app.post('/info', (req, res) => {
-    const cityName = req.body.userInput;
-
-    const countryName = `${weatherURL}${cityName}${weatherApiKey}`;
-
-    console.log(countryName);
-
-    fetch(countryName)
-        .then(res => res.json())
-        .then(data => {
-            //we need the country code from the data
-            const countryCode = data[1].country_code;
-
-            console.log(countryCode);
-            //we need to get the country data from the country code
-            const getCountryInfo = `https://restcountries.com/v2/alpha/${countryCode}`;
-            //we need to return the data from the restcountries api
-            fetch(getCountryInfo)
-                .then(res => res.json())
-                .then(data => {
-                    //we want the country name, population, flag, currency, and language
-                    const name = data.name;
-                    const population = data.population;
-                    const flag = data.flag;
-                    const currency = data.currencies[0].name;
-                    const language = data.languages[0].name;
-
-                    console.log(`${name} ${population} ${flag} ${currency} ${language}`);
-
-                    //we need to send the data to the client side
-                    res.send({
-                        name,
-                        population,
-                        flag,
-                        currency,
-                        language
-                    });
-                });
-        });
-});
 
 
 app.listen(3001, () => {
