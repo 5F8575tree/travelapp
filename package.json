@@ -4,7 +4,7 @@
   "description": "Travel App to return a weather report",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "wp --mode production",
     "dev": "wp --mode development",
     "server": "nodemon ./src/server/server.js",
@@ -16,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.3",
+    "jest": "^27.5.1",
     "node": "^17.7.2",
     "node-fetch": "^2.6.7",
     "path": "^0.12.7",
