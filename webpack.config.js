@@ -26,6 +26,7 @@ const commonConfig = merge([
 const productionConfig = merge([
     parts.minifyJavaScript(),
     parts.minifyCSS({ options: { minimizerOptions: { preset: ["default", { discardComments: { removeAll: true } }] } } }),
+    parts.serviceWorker(),
 ]);
 
 const developmentConfig = merge([
