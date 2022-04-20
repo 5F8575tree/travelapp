@@ -13,16 +13,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-
 //we need to store our data from our .env file
-const geonamesURL = process.env.GEONAMES_BASE_URL;
-const geonamesApiKey = process.env.GEONAMES_API_KEY;
+const geonamesURL = "http://api.geonames.org/searchJSON?q="
+const geonamesApiKey = "&username=mark.jeffrey.rawlins"
 
-const weatherURL = process.env.WEATHERBIT_BASE_URL;
-const weatherApiKey = process.env.WEATHERBIT_API_KEY;
+const weatherURL = "http://api.weatherbit.io/v2.0/forecast/daily?"
+const weatherApiKey = "&key=b146b142e749442f9778a2cef0c77a17"
 
-const pixabayURL = process.env.PIXABAY_BASE_URL;
-const pixabayApiKey = process.env.PIXABAY_API_KEY;
+const pixabayURL = "https://pixabay.com/api/?"
+const pixabayApiKey = "&key=26767271-e42822fb49d75e62bcc3cfac4"
 
 
 app.get('/*', (req, res) => {
@@ -67,8 +66,6 @@ app.post('/api', (req, res) => {
                     //we need the country code
                     const countryCode = data.country_code;
 
-                    console.log("weatherbit code:", countryCode);
-
                     //we need to build the url for pixabay and return the image
                     const urlPixabay = `${pixabayURL}&q=${dataAPI.userInput}&image_type=photo&pretty=true&key=${pixabayApiKey}`;
                     fetch(urlPixabay)
@@ -81,8 +78,6 @@ app.post('/api', (req, res) => {
                             //we need to build the url for the country data
                             const urlCountry = `https://restcountries.com/v3.1/alpha/${countryCode}`;
 
-                            console.log("url country is:", urlCountry);
-
                             //we need to send the data to the client side
                             fetch(urlCountry)
                                 .then(res => res.json())
@@ -92,8 +87,6 @@ app.post('/api', (req, res) => {
                                     const population = data[0].population;
                                     const region = data[0].region;
                                     const flag = data[0].flags.svg;
-
-                                    console.log('country is', country, 'population is', population, 'region is', region, 'flag is', flag);
 
                                     res.send({
                                         dataAPI,
